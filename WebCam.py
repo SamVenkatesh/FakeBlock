@@ -1,8 +1,14 @@
 import cv2
 import Constants
-from MyCNN import NNModel
+from BuildTrainTestCNN import NNModel
 
 face_cascade = cv2.CascadeClassifier('cascade_files/haarcascade_frontalface_default.xml')
+
+'''
+We need to isolate all faces in the image and retrieve
+the one with the largest "area". 
+Crop/transform it to network specs and return it.
+'''
 
 
 def format_image(image_to_format):
@@ -30,7 +36,8 @@ def format_image(image_to_format):
     # Chop image to face
     face = max_face
     image_to_format = image_to_format[face[1]:(face[1] + face[2]), face[0]:(face[0] + face[3])]
-    # Resize image to network size
+
+    # Resize image to fit network specs
     try:
         image_to_format = cv2.resize(image_to_format, (Constants.FACE_SIZE, Constants.FACE_SIZE),
                                      interpolation=cv2.INTER_CUBIC) / 255.
@@ -44,6 +51,13 @@ video_capture = cv2.VideoCapture(0)
 nnModel = NNModel()
 nnModel.build_model()
 nnModel.model.load_weights('model_weights')
+
+
+'''
+Pulled this infinite loop of pulling the WebCam feed straight from OpenCVs docs.
+Its a little choppy on my computer, your mileage may vary.
+'''
+
 
 while True:
     # Capture frame-by-frame
