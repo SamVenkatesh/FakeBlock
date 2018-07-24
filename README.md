@@ -3,6 +3,12 @@
 ## What
 A Deep Learning application built using Python to recognize emotion from facial expressions.
 
+#### TLDR/Usage
+To run the application, simply execute `python3 WebCam.py` or your respective command to run python3. To train the network with different parameters, you would have to make minor modifications to `BuildTrainTestCNN.py`.  
+  
+I am working on adding functionality to make this process easier. For the time being, you could tweak the default values for training/testing parameters in the aforementioned file.  
+The values I've used are by no means perfect. I encourage you to find better configurations.
+
 ## Why
 I recently completed the CSCI 567 - Machine Learning Course at USC and I enjoyed working on projects throughout that class. 
 So, I decided to work on a side project over the summer just to see what I could build with what I had learned.
@@ -53,7 +59,7 @@ TODO: MAKE DEMO
 
 So majestic.  
 
-The CNN manages to identify the easy emotions (Happy, Sad and Neutral) most of the time. There are slight variations in results when testing on others but I will need a larger sample size to draw any statistically significant conclusions. 
+The CNN manages to identify the easy emotions (Happy, Sad and Neutral) most of the time. There are slight variations in results when testing on others but I will need a larger sample size to draw any statistically significant conclusions.  
 That being said, I have noticed that it frequently mistakes my _angry_ face for _neutral_ and _disgusted_ is a hit or a miss a lot of the time.
 
 Despite the okay-sounding theoretical results, practical testing is not so straightforward. Especially in problems like this one with a variety of variables such as lighting, shadows, facial differences, distance from camera, camera quality, background noise and so on.
