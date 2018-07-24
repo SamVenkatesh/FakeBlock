@@ -10,7 +10,9 @@ So, I decided to work on a side project over the summer just to see what I could
 I came across an [old contest on Kaggle](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) and I was intrigued so I started working on it.
 
 ## How
-I decided to use a [Convolutional Neural Network](http://cs231n.github.io/convolutional-networks/) (CNN) for this project. Neural Networks were always a favorite of mine (I'm not entirely sure why I'm partial to Neural Nets, they seemed part intuitive and part sorcery to me). 
+I decided to use a [Convolutional Neural Network](http://cs231n.github.io/convolutional-networks/) (CNN) for this project. Neural Networks were always a favorite of mine (I'm not entirely sure why I'm partial to Neural Nets, they seemed part intuitive and part sorcery to me).  
+Additionally, in order to retrieve the user's face, I used [OpenCV](https://opencv.org/) to open a continuous feed from the WebCam and it's [Haar Cascade Classifier](https://docs.opencv.org/3.3.1/d7/d8b/tutorial_py_face_detection.html) to detect faces from the resulting frames.
+Once I have this face, my CNN can do it's thing.
 
 #### Side Note:
 For those of you who aren't really familiar with Neural Networks or are not interested in diving deep on them, [this video](https://www.youtube.com/watch?v=aircAruvnKk) by 3Blue1Brown is an excellent introduction to the topic and I highly recommend it to everyone, regardless of prior knowledge.
@@ -18,7 +20,7 @@ For those of you who aren't really familiar with Neural Networks or are not inte
 #### Back on topic:
 Additionally, for my course, I had to design and implement a Neural Network from scratch to classify the [MNIST dataset](http://yann.lecun.com/exdb/mnist/) so it seemed fitting that I could use a CNN for other image processing problems as well.
 
-Luckily for me, the aformentioned kaggle contest containted a fairly comprehensive dataset of people making faces and a corresponding label of the emotion being displayed in the image.  
+Luckily for me, the aforementioned Kaggle contest contained a fairly comprehensive dataset of people making faces and a corresponding label of the emotion being displayed in the image.  
 Specifically, it contains 28,709 images labelled with one of seven emotions - Neutral, Happy, Sad, Angry, Surprised, Fearful and Disgusted.   
 Despite my limited experience with Machine Learning, I have learned that the 80-20 rule applies here as well. 80% of the job is getting/filtering/sorting/labelling data. The actual "learning" part is not overly complicated.
 
@@ -26,15 +28,19 @@ Despite my limited experience with Machine Learning, I have learned that the 80-
   <img src ="https://imgs.xkcd.com/comics/machine_learning.png" />
 </p>
 
-Designing my network itself was not as difficult as I had anticipated. I referred to [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) and tried to follow their example of applying Convolution and Max-Pooling layers at various stages. Ultimately, I ended up with the following network.
+Credit-[Randall Munroe's xkcd](https://xkcd.com/1425)
+
+Designing my network itself was not as difficult as I had anticipated. I referred to [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) and tried to follow their example of applying Convolution and Max-Pooling layers at various stages.  
+  
+Ultimately, I ended up with the following network.
 
 <p align="center">
   <img src ="https://drive.google.com/uc?id=1PAP15NnHnsPqW2Il4RmZCJD09Kq4CkQY" />
 </p>
 
 ## Training
-I trained the CNN for 200 epochs with a random 80-20 train-test split of the dataset with the training data being shuffled at the start of each iteration. Initially, I trained the CNN for 100 epochs and achieved a Mean Square Error (MSE) of 0.12.  
-Training for 200 epochs returned a MSE of 0.068.  
+I trained the CNN for 200 epochs with a random 80-20 train-test split of the dataset with the training data being shuffled at the start of each iteration. This achieved a Mean Square Error (MSE) of 0.068.  
+   
 I'm currently debating training this on one of [Amazon's Deep Learning AMIs](https://aws.amazon.com/machine-learning/amis/) on AWS for 1000 epochs to see what kind of error rate we could achieve (and also spare my poor laptop from overheating). If you're curious about how that would work, I recommend [this video](https://www.youtube.com/watch?v=pK-LYoRwp-k) by CodeEmporium.
 
 ## Testing
@@ -52,6 +58,8 @@ Despite the okay-sounding theoretical results, practical testing is not so strai
 <p align="center">
   <img src ="https://imgs.xkcd.com/comics/tasks.png" />
 </p>
+
+Credit-[Randall Munroe's xkcd](https://xkcd.com/1838/)
 
 
 ## Future Work
