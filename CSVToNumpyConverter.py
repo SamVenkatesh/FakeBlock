@@ -7,6 +7,12 @@ from os.path import join
 
 cascade_classifier = cv2.CascadeClassifier('cascade_files/haarcascade_frontalface_default.xml')
 
+'''
+Wrapping CSV strings into numpy arrays so we can dump them to disk.
+Handling data with numpy is much easier and several times faster
+than using standard library data structures.
+'''
+
 
 def data_to_image(data):
     new_image = np.fromstring(str(data),
@@ -21,10 +27,22 @@ def data_to_image(data):
     return new_image
 
 
+'''
+Basic one hot encoding vector. 
+Specific emotion index is set to 1, everything else is 0.
+'''
+
+
 def encode_one_hot_emotion(x):
     d = np.zeros(len(Constants.EMOTIONS))
     d[x] = 1.0
     return d
+
+'''
+We need to isolate all faces in the image and retrieve
+the one with the largest "area". 
+Crop/transform it to network specs and return it.
+'''
 
 
 def format_image(image_to_format):
@@ -64,13 +82,15 @@ def format_image(image_to_format):
         image_to_format = cv2.resize(image_to_format, (Constants.FACE_SIZE, Constants.FACE_SIZE),
                                      interpolation=cv2.INTER_CUBIC) / 255.
     except Exception:
+        # This happened once and now I'm scared to remove it.
         print("Image resize exception. Check input resolution inconsistency.")
         return None
     return image_to_format
 
 
 data = pd.read_csv(join(Constants.DATA_DIR, Constants.DATASET_CSV_FILENAME))
-
+# This data wrangling took me longer than I care to admit.
+# Pandas + Numpy ftw
 labels = []
 images = []
 total = data.shape[0]
