@@ -10,7 +10,7 @@ So, I decided to work on a side project over the summer just to see what I could
 I came across an [old contest on Kaggle](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) and I was intrigued so I started working on it.
 
 ## How
-I decided to use a [Convolutional Neural Network](http://cs231n.github.io/convolutional-networks/) (CNN) for this project. Neural Networks were always a favorite of mine (I'm not entirely sure why I'm partial to Neural Nets, they seemed part intuitive and part sorcery to me).  
+I decided to use a [Convolutional Neural Network](http://cs231n.github.io/convolutional-networks/) (CNN) for this project. Neural Networks were always a favorite of mine (I'm not entirely sure why I'm partial to Neural Nets, but they've always seemed very intuitive to me).  
 Additionally, in order to retrieve the user's face, I used [OpenCV](https://opencv.org/) to open a continuous feed from the WebCam and it's [Haar Cascade Classifier](https://docs.opencv.org/3.3.1/d7/d8b/tutorial_py_face_detection.html) to detect faces from the resulting frames.
 Once I have this face, my CNN can do it's thing.
 
@@ -37,6 +37,9 @@ Ultimately, I ended up with the following network.
 <p align="center">
   <img src ="https://drive.google.com/uc?id=1PAP15NnHnsPqW2Il4RmZCJD09Kq4CkQY" />
 </p>
+  
+For the implementation, I chose [Keras](https://keras.io/) with a [TensorFlow backend](https://www.tensorflow.org/guide/keras). Keras acts like a wrapper over TensorFlow and at the time, it seemed easier to get started with.  
+In hindsight, performing the same in TensorFlow would not have been any different, save for changes in syntax. TensorFlow's [tutorials](https://www.tensorflow.org/tutorials/) and [documentation](https://www.tensorflow.org/api_docs/) are excellent.
 
 ## Training
 I trained the CNN for 200 epochs with a random 80-20 train-test split of the dataset with the training data being shuffled at the start of each iteration. This achieved a Mean Square Error (MSE) of 0.068.  
