@@ -4,6 +4,8 @@
 A Deep Learning application built using Python to recognize emotion from facial expressions.
 
 #### TLDR/Usage
+First, [install Keras](https://keras.io/#installation) along with [TensorFlow](https://www.tensorflow.org/install/install_mac), you could simply run `pip install keras` and `pip install tensorflow` respectively if you have PyPI. You'll also need [OpenCV](https://pypi.org/project/opencv-python/) or `pip install opencv-python`.  
+
 To run the application, simply execute `python3 WebCam.py` or your respective command to run python3. To train the network with different parameters, you would have to make minor modifications to `BuildTrainTestCNN.py`.  
   
 I am working on adding functionality to make this process easier. For the time being, you could tweak the default values for training/testing parameters in the aforementioned file.  
@@ -55,7 +57,9 @@ I'm currently debating training this on one of [Amazon's Deep Learning AMIs](htt
 ## Testing
 Ideally, I'd like to get an aspiring actor from the Film School to participate in the sample but as a CS Major, I'm not even allowed in the building.  
 
-TODO: MAKE DEMO
+<p align="center">
+  <img src ="https://drive.google.com/uc?id=1Y_j_6COAvrG4HohXja0EsJodmby3ec5Q" />
+</p>
 
 So majestic.  
 
