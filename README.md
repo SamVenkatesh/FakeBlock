@@ -32,6 +32,7 @@ Luckily for me, the aforementioned Kaggle contest contained a fairly comprehensi
 Specifically, it contains 28,709 images labelled with one of seven emotions - Neutral, Happy, Sad, Angry, Surprised, Fearful and Disgusted.   
 Despite my limited experience with Machine Learning, I have learned that the 80-20 rule applies here as well. 80% of the job is getting/filtering/sorting/labelling data. The actual "learning" part is not overly complicated.
 
+
 <p align="center">
   <img src ="https://imgs.xkcd.com/comics/machine_learning.png" />
 </p>
@@ -56,6 +57,16 @@ I'm currently debating training this on one of [Amazon's Deep Learning AMIs](htt
 
 ## Testing
 Ideally, I'd like to get an aspiring actor from the Film School to participate in the sample but as a CS Major, I'm not even allowed in the building.  
+Behold
+
+<p align="center">
+  <img src ="https://drive.google.com/uc?id=1REhySf37gldV79GtQPKlxkSkvN0tUmPf" />
+</p>
+
+<p align="center">
+  <img src ="https://drive.google.com/uc?id=1CXd7avWwiK5MsSr0Yu-4TMiM5jTjMa5v" />
+    I did my best with this one.
+</p>
 
 <p align="center">
   <img src ="https://drive.google.com/uc?id=1Y_j_6COAvrG4HohXja0EsJodmby3ec5Q" />
